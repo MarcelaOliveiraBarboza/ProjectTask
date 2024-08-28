@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://projectdiary/./frontend/main.js"],"names":["console","log"],"mappings":"AAKAA,QAAQC,IAAI","file":"bundle.js","sourcesContent":["//import 'core-js/stable';\n//import 'regenerator-runtime/runtime';\n\n//import './assets/css/style.css';\n\nconsole.log('Olá mundo 3');\n"],"sourceRoot":""}
