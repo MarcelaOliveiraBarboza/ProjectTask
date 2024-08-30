@@ -23,7 +23,7 @@ exports.csrfMiddleware = (req, res, next) => {
 
 exports.loginRequired = (req, res, next) => {
   if(!req.session.user) {
-    req.flash('errors', 'Para cadastrar contatos, é necessário estar logado');
+    req.flash('errors', 'Para essa ação é necessário estar logado');
     req.session.save(() => res.redirect('/'));
     return;
   }

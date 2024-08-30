@@ -10,6 +10,25 @@
       <p class="text-center lead">Seus contatos estão registrados abaixo</p>
 
       <%- include('includes/messages')  %>
+
+      <% if(contacts.length > 0) { %>
+        <div class="responsive-table">
+          <table class="table my-3">
+            <% contacts.forEach(contact => { %>
+              <tr>
+                <td><%= contact.name %></td>
+                <td><%= contact.lastName %></td>
+                <td><%= contact.email %></td>
+                <td><%= contact.phone %></td>
+                <td><a href="/contact/homePage/<%= contact.id %>">Editar</a></td>
+                <td><a class="text-danger" href="/contact/delete/<%= contact.id %>">Excluir</a></td>
+              </tr>
+            <% }); %>
+          </table>
+        </div>
+      <% } else { %>
+        <p class="text-center lead">Você ainda não possui contatos cadastrados na sua agenda</p>
+      <% } %>
     </div>
     
     <div class="col-lg-2"></div>
