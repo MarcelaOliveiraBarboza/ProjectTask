@@ -19,5 +19,6 @@ route.get('/login/logout', loginController.logout);
 route.get('/contact', loginRequired, contactController.contacts);
 route.post('/contact/register', loginRequired, contactController.register);
 route.get('/contact/homePage/:id', loginRequired, contactController.editHomePage);
+route.post('/contact/edit/:id', loginRequired, contactController.edit);
 
 module.exports = route;

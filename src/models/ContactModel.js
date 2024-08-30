@@ -36,7 +36,7 @@ Contact.prototype.validation = function() {
   if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('Email inválido.');
   if(!this.body.name) this.errors.push('Indicar o nome é um campo obrigatório');
   if(!this.body.email && !this.body.phone) {
-    this.errors.push('Para que cadastre um contato é necessesário que o email ou telefone seja enviado');
+    this.errors.push('Para que cadastre um contato é necessário que o email ou telefone seja enviado');
   }
 };
 
@@ -53,6 +53,13 @@ Contact.prototype.cleanUp = function() {
     email: this.body.email,
     phone: this.body.phone,
   };
+};
+
+Contact.prototype.edit = async function(id) {
+  if(typeof id !== 'string') return;
+  this.validation();
+  if(this.errors.length > 0) return;
+  this.contact =await ContactModel.findByIdAndUpdate(id, this.body, { new: true });
 }
 
 module.exports = Contact;

@@ -16,7 +16,7 @@ const helmet = require('helmet');
 const csrf = require('csurf');
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware');
 
-app.use(helmet());
+app.use(helmet.referrerPolicy({ policy: ["origin", "unsafe-url"] }));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
