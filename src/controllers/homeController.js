@@ -1,6 +1,6 @@
-const Contact = require('../models/ContactModel');
+const Task = require('../models/TaskModel');
 
 exports.homePage = async (req, res) => {
-  const contacts = await Contact.searchContact();
-  res.render('homePage', { contacts });
+  const tasks = await Task.searchTask();
+  res.render('homePage', { tasks });
 };

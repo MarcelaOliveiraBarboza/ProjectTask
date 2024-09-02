@@ -6,28 +6,42 @@
     <div class="col-lg-2"></div>
 
     <div class="col-lg-8 my-3">
-      <h1 class="text-center">Minha agenda</h1>
-      <p class="text-center lead">Seus contatos estão registrados abaixo</p>
+      <h1 class="text-center">Minhas Tarefas</h1>
+      <p class="text-center lead">Suas tarefas estão registradas abaixo</p>
 
       <%- include('includes/messages')  %>
 
-      <% if(contacts.length > 0) { %>
+      <% if(tasks.length > 0) { %>
         <div class="responsive-table">
           <table class="table my-3">
-            <% contacts.forEach(contact => { %>
+            <thead>
               <tr>
-                <td><%= contact.name %></td>
-                <td><%= contact.lastName %></td>
-                <td><%= contact.email %></td>
-                <td><%= contact.phone %></td>
-                <td><a href="/contact/homePage/<%= contact.id %>">Editar</a></td>
-                <td><a class="text-danger" href="/contact/delete/<%= contact.id %>">Excluir</a></td>
+                <th>Nome</th>
+                <th>Disciplina</th>
+                <th>Email do Professor</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th></th>
+                <th></th>
               </tr>
-            <% }); %>
+            </thead>
+            <tbody>
+              <% tasks.forEach(task => { %>
+                <tr>
+                  <td><%= task.name %></td>
+                  <td><%= task.discipline %></td>
+                  <td><%= task.emailTeacher %></td>
+                  <td><%= task.description %></td>
+                  <td><%= task.dateLimit %></td>
+                  <td><a href="/task/homePage/<%= task.id %>">Editar</a></td>
+                  <td><a class="text-danger" href="/task/delete/<%= task.id %>">Excluir</a></td>
+                </tr>
+              <% }); %>
+            </tbody>
           </table>
         </div>
       <% } else { %>
-        <p class="text-center lead">Você ainda não possui contatos cadastrados na sua agenda</p>
+        <p class="text-center lead">Você ainda não possui tarefas cadastradas na sua lista</p>
       <% } %>
     </div>
     

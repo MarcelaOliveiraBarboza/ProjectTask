@@ -2,7 +2,7 @@ const express = require('express');
 const route = express.Router();
 const homeController = require('./src/controllers/homeController');
 const loginController = require('./src/controllers/loginController');
-const contactController = require('./src/controllers/contactController');
+const taskController = require('./src/controllers/taskController');
 
 const { loginRequired } = require('./src/middlewares/middleware')
 
@@ -15,11 +15,11 @@ route.post('/login/register', loginController.register);
 route.post('/login/login', loginController.login);
 route.get('/login/logout', loginController.logout);
 
-// contact routes
-route.get('/contact', loginRequired, contactController.contacts);
-route.post('/contact/register', loginRequired, contactController.register);
-route.get('/contact/homePage/:id', loginRequired, contactController.editHomePage);
-route.post('/contact/edit/:id', loginRequired, contactController.edit);
-route.get('/contact/delete/:id', loginRequired, contactController.delete);
+// task routes
+route.get('/task', loginRequired, taskController.tasks);
+route.post('/task/register', loginRequired, taskController.register);
+route.get('/task/homePage/:id', loginRequired, taskController.editHomePage);
+route.post('/task/edit/:id', loginRequired, taskController.edit);
+route.get('/task/delete/:id', loginRequired, taskController.delete);
 
 module.exports = route;
